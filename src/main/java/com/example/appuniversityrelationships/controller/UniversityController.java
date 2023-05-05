@@ -1,0 +1,77 @@
+package com.example.appuniversityrelationships.controller;
+
+import com.example.appuniversityrelationships.entity.Address;
+import com.example.appuniversityrelationships.entity.University;
+import com.example.appuniversityrelationships.payload.UniversityDto;
+import com.example.appuniversityrelationships.repository.AddressRepository;
+import com.example.appuniversityrelationships.repository.UniversityRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping(value = "/university")
+public class UniversityController {
+
+    @Autowired
+    UniversityRepository universityRepository;
+    @Autowired
+    AddressRepository addressRepository;
+
+    @RequestMapping( method = RequestMethod.GET)
+    public List<University> universities(){
+        return universityRepository.findAll();
+    }
+
+    @RequestMapping( method = RequestMethod.POST)
+    public List<University> addUniversities(@RequestBody UniversityDto universityDto){
+
+        Address address = new Address();
+        address.setCity(universityDto.getCity());
+        address.setDistrict(universityDto.getDistrict());
+        address.setStreet(universityDto.getStreet());
+        address.setHomeNumber(universityDto.getHomeNumber());
+        Address savedAddress = addressRepository.save(address);
+
+        University university = new University();
+        university.setName(universityDto.getName());
+        university.setAddress(savedAddress);
+        universityRepository.save(university);
+        return universityRepository.findAll();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public University getOneUniversity(@PathVariable Integer id){
+        Optional<University> universityRepositoryById = universityRepository.findById(id);
+        if (universityRepositoryById.isPresent()){
+            return universityRepositoryById.get();
+        }
+        return new University();
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public String updateUniversity(@PathVariable Integer id, @RequestBody UniversityDto dto){
+
+        Optional<University> universityOptional = universityRepository.findById(id);
+        if (universityOptional.isPresent()){
+            University university = universityOptional.get();
+            university.setName(dto.getName());
+            Address address = university.getAddress();
+            address.setCity(dto.getCity());
+            address.setDistrict(dto.getDistrict());
+            address.setStreet(dto.getStreet());
+            address.setHomeNumber(dto.getHomeNumber());
+            universityRepository.save(university);
+            return "O'zartirildi";
+        }
+        return "";
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public List<University> deleteUniversity(@PathVariable Integer id){
+        universityRepository.deleteById(id);
+        return universityRepository.findAll();
+    }
+}
