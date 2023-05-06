@@ -1,15 +1,17 @@
-package com.example.appuniversityrelationships.entity;
+package uz.pdp.apprelationshipuniver.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-public class Faculity {
+@Entity(name = "groups")
+public class Group {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +21,5 @@ public class Faculity {
     private String name;
 
     @ManyToOne
-    private University university;
+    private Faculty faculty;
 }

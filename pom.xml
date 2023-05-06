@@ -8,11 +8,11 @@
         <version>3.0.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>app-university-relationships</artifactId>
+    <groupId>uz.pdp</groupId>
+    <artifactId>app-relationship-univer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>app-university-relationships</name>
-    <description>app-university-relationships</description>
+    <name>app-relationship-univer</name>
+    <description>app-relationship-univer</description>
     <properties>
         <java.version>20</java.version>
     </properties>

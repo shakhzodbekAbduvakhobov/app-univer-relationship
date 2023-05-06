@@ -1,4 +1,4 @@
-package com.example.appuniversityrelationships.entity;
+package uz.pdp.apprelationshipuniver.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,4 +1,4 @@
-package com.example.appuniversityrelationships.payload;
+package uz.pdp.apprelationshipuniver.payload;
 
 import lombok.Data;
 

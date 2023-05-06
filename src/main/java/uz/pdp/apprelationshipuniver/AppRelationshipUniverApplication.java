@@ -1,13 +1,13 @@
-package com.example.appuniversityrelationships;
+package uz.pdp.apprelationshipuniver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppUniversityRelationshipsApplication {
+public class AppRelationshipUniverApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AppUniversityRelationshipsApplication.class, args);
+        SpringApplication.run(AppRelationshipUniverApplication.class, args);
     }
 
 }

@@ -1,12 +1,12 @@
-package com.example.appuniversityrelationships.controller;
+package uz.pdp.apprelationshipuniver.controller;
 
-import com.example.appuniversityrelationships.entity.Address;
-import com.example.appuniversityrelationships.entity.University;
-import com.example.appuniversityrelationships.payload.UniversityDto;
-import com.example.appuniversityrelationships.repository.AddressRepository;
-import com.example.appuniversityrelationships.repository.UniversityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import uz.pdp.apprelationshipuniver.entity.Address;
+import uz.pdp.apprelationshipuniver.entity.University;
+import uz.pdp.apprelationshipuniver.payload.UniversityDto;
+import uz.pdp.apprelationshipuniver.repository.AddressRepository;
+import uz.pdp.apprelationshipuniver.repository.UniversityRepository;
 
 import java.util.List;
 import java.util.Optional;
